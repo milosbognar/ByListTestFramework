@@ -8,11 +8,14 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
 
 import java.text.DecimalFormat;
+import java.util.function.BiFunction;
 
-import static com.milosbognar.buylist.core.Constants.LIST_DESCRIPTION;
 import static com.milosbognar.buylist.core.utils.Utilities.*;
+import static java.lang.String.format;
 
 public class HomePage extends HomePageElement {
+
+    public static final BiFunction<Integer, String, String> LIST_DESCRIPTION = (a, b) -> format("All items: %d Sum: %s £ Date: \\d{1,2}:\\d{1,2}, \\d{1,2}.\\d{1,2}.\\d{1,2}", a, b);
 
     @Step("When I close popup")
     public void closePopup() {
