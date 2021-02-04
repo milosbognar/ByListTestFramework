@@ -1,0 +1,56 @@
+[
+  {
+    "item_id": "product1",
+    "name": "bread",
+    "price": 15.4,
+    "amount": 2,
+    "measure_unit": "pcs.",
+    "comment": "White sliced",
+    "category": "Grocery"
+  },
+  {
+    "item_id": "product2",
+    "name": "chocolate",
+    "price": 30,
+    "amount": 1,
+    "measure_unit": "g",
+    "comment": "Dark",
+    "category": "Grocery"
+  },
+  {
+    "item_id": "product3",
+    "name": "water",
+    "price": 13.2687,
+    "amount": 4,
+    "measure_unit": "pack",
+    "comment": "fresh water",
+    "category": "Pet products"
+  },
+  {
+    "item_id": "broductC",
+    "name": "ccc",
+    "price": 3,
+    "amount": 4,
+    "measure_unit": "pack",
+    "comment": "ccc",
+    "category": "Grocery"
+  },
+  {
+    "item_id": "productB",
+    "name": "bbb",
+    "price": 5,
+    "amount": 2,
+    "measure_unit": "box",
+    "comment": "bbb",
+    "category": "Pet products"
+  },
+  {
+    "item_id": "productA",
+    "name": "aaa",
+    "price": 12.25,
+    "amount": 1,
+    "measure_unit": "sm",
+    "comment": "aaa",
+    "category": "Plants"
+  }
+]

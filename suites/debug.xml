@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Debug Suite">
+    <listeners>
+        <listener class-name="com.milosbognar.buylist.core.utils.Listeners"></listener>
+    </listeners>
+    <test name="Debug">
+        <groups>
+            <run>
+                <include name="DEBUG"/>
+                <include name="Debug"/>
+                <include name="debug"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.milosbognar.buylist.tests.AddToProductPageTest"></class>
+            <class name="com.milosbognar.buylist.tests.HomePageTest"></class>
+            <class name="com.milosbognar.buylist.tests.SettingsPageTest"></class>
+        </classes>
+    </test>
+</suite>
