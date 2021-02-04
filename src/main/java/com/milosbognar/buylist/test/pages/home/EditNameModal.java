@@ -3,16 +3,15 @@ package com.milosbognar.buylist.test.pages.home;
 import com.milosbognar.buylist.test.elements.home.EditNameModalElement;
 import io.qameta.allure.Step;
 
-import static com.milosbognar.buylist.core.utils.Utilities.logStep;
-import static com.milosbognar.buylist.core.utils.Utilities.waitForNSeconds;
+import static com.milosbognar.buylist.core.utils.Utilities.*;
 
 public class EditNameModal extends EditNameModalElement {
 
     @Step("When I change list name")
     public EditNameModal chanageListName(String listName) {
         logStep("When I change list name to [%s]", listName);
-        txtEnterName.clear();
-        txtEnterName.sendKeys(listName);
+        clearTextField(txtEnterName);
+        enterText(txtEnterName, listName);
         return this;
     }
 

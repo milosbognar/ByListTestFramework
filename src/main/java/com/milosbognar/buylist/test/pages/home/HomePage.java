@@ -42,7 +42,7 @@ public class HomePage extends HomePageElement {
         logStep("Create [%s] list", listName);
         waitForNSeconds(3);
         txtListName.click();
-        txtListName.sendKeys(listName);
+        enterText(txtListName, listName);
         btnCreateList.click();
         return new AddProductPage();
     }

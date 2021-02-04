@@ -27,12 +27,12 @@ public class AddProductPage extends AddProductElement {
     @Step("When I add an item to the list")
     public AddProductPage addItemToList(Item item) {
         logStep("When I add an item to the list");
-        txtItemName.sendKeys(item.getName());
-        txtPrice.sendKeys(Double.toString(item.getPrice()));
-        txtAmount.sendKeys(Double.toString(item.getAmount()));
+        enterText(txtItemName, item.getName());
+        enterText(txtPrice, Double.toString(item.getPrice()));
+        enterText(txtAmount, Double.toString(item.getAmount()));
         spinnerMeasureUnit.click();
         findElementByTextUsingScroll(item.getMeasureUnit()).click();
-        txtComment.sendKeys(item.getComment());
+        enterText(txtComment, item.getComment());
         spinnerCategory.click();
         findElementByTextUsingScroll(item.getCategory()).click();
         btnAddItem.click();

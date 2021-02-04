@@ -3,8 +3,7 @@ package com.milosbognar.buylist.test.pages.settings;
 import com.milosbognar.buylist.test.elements.settings.CategoriesListElement;
 import io.qameta.allure.Step;
 
-import static com.milosbognar.buylist.core.utils.Utilities.findElementByTextUsingScroll;
-import static com.milosbognar.buylist.core.utils.Utilities.logStep;
+import static com.milosbognar.buylist.core.utils.Utilities.*;
 
 public class CategoriesListPage extends CategoriesListElement {
 
@@ -12,7 +11,7 @@ public class CategoriesListPage extends CategoriesListElement {
     public CategoriesListPage addNewCategory(String categoryName) {
         logStep("When I create category [%s]", categoryName);
         btnAddNew.click();
-        txtEnterName.sendKeys(categoryName);
+        enterText(txtEnterName, categoryName);
         btnOK.click();
         return this;
     }

@@ -56,6 +56,24 @@ public class Utilities {
         }
     }
 
+    public static void clearTextField(WebElement element) {
+        try {
+            waitForNSeconds(1);
+            element.clear();
+            waitForNSeconds(1);
+        } catch (Exception e) {
+        }
+    }
+
+    public static void enterText(WebElement element, String text) {
+        try {
+            waitForNSeconds(1);
+            element.sendKeys(text);
+            waitForNSeconds(1);
+        } catch (Exception e) {
+        }
+    }
+
     public static String getElementText(WebElement element) {
         try {
             return element.getText();
