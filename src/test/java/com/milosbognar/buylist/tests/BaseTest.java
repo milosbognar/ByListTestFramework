@@ -17,6 +17,8 @@ import java.io.IOException;
 
 import static com.milosbognar.buylist.core.AppiumServer.startServer;
 import static com.milosbognar.buylist.core.AppiumServer.stopServer;
+import static com.milosbognar.buylist.core.DriverManager.startEmulator;
+import static com.milosbognar.buylist.core.PropertiesManager.getSystemProperty;
 import static com.milosbognar.buylist.core.utils.Utilities.reopenApp;
 
 public abstract class BaseTest {
@@ -41,8 +43,12 @@ public abstract class BaseTest {
     public final String SETTINGS_TEST = "SETTINGS_TEST";
 
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite() {
-        startServer();
+    public void beforeSuite() throws IOException, InterruptedException {
+        String isLocalRun = getSystemProperty("isLocalRun");
+        if (isLocalRun.equals("false")) {
+            startServer();
+            startEmulator();
+        }
     }
 
     @BeforeMethod(alwaysRun = true)

@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 import static com.milosbognar.buylist.core.PropertiesManager.getProjectProperty;
 import static com.milosbognar.buylist.core.PropertiesManager.getSystemProperty;
-import static com.milosbognar.buylist.core.utils.Utilities.implicitlyWaitForNSeconds;
 import static com.milosbognar.buylist.core.utils.Utilities.waitForNSeconds;
 
 public class DriverManager {
@@ -36,15 +35,9 @@ public class DriverManager {
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
         cap.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
 
-        String isLocalRun = getSystemProperty("isLocalRun");
-
-        if (isLocalRun.equals("false")) {
-            startEmulator();
-        }
-
         driver = new AndroidDriver<>(new URL(getProjectProperty("hubUrl")), cap);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        implicitlyWaitForNSeconds(5);
+        waitForNSeconds(5);
         return driver;
     }
 
