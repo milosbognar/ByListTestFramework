@@ -10,7 +10,7 @@ import static com.milosbognar.buylist.core.utils.TestContext.getContext;
 
 public class HomePageTest extends BaseTest {
 
-    @Test(description = "User creates and deletes the list")
+    @Test(groups = {HOME_TEST}, description = "User creates and deletes the list")
     public void testCreateAndRemoveList() {
         String listName = "New List";
         homePage.createNewList(listName)
@@ -21,7 +21,7 @@ public class HomePageTest extends BaseTest {
                 .clickButtonOK();
     }
 
-    @Test(description = "User changes list name")
+    @Test(groups = {HOME_TEST}, description = "User changes list name")
     public void testListNameChanged() {
         String listName = "New List";
         String newListName = "Changed name";
@@ -34,7 +34,7 @@ public class HomePageTest extends BaseTest {
                 .verifyEmptyListElements(newListName);
     }
 
-    @Test(description = "User doesn't change list name")
+    @Test(groups = {HOME_TEST}, description = "User doesn't change list name")
     public void testListNameNotChanged() {
         String listName = "New List";
         String newListName = "Changed name";
@@ -47,7 +47,7 @@ public class HomePageTest extends BaseTest {
                 .verifyEmptyListElements(listName);
     }
 
-    @Test(description = "Verify that list description is correct", groups = {"Debug"})
+    @Test(groups = {HOME_TEST}, description = "Verify that list description is correct")
     public void testVerifyListDescription() {
         List<Item> itemList = dataProvider().subList(0, 3);
         String listName = "Grocery list";

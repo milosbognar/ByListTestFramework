@@ -11,10 +11,4 @@ public class DeleteModalElement extends BasePageElement {
 
     @AndroidFindBy(xpath = "//*[@text = 'Are you sure?']")
     protected WebElement lblAreYouSure;
-
-    @AndroidFindBy(id = "android:id/button1")
-    protected WebElement btnOK;
-
-    @AndroidFindBy(xpath = "//*[@text = 'No']")
-    protected WebElement btnNo;
 }

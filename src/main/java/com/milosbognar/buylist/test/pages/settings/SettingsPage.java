@@ -24,12 +24,11 @@ public class SettingsPage extends SettingsElement {
         return new HomePage();
     }
 
-
     @Step("When I hide units")
     public SettingsPage hideUnits() {
         logStep("When I hide units");
         cbUnits.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return this;
     }
 
@@ -37,7 +36,7 @@ public class SettingsPage extends SettingsElement {
     public SettingsPage hideComments() {
         logStep("When I hide comments");
         cbComment.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
 
         return this;
     }
@@ -46,7 +45,7 @@ public class SettingsPage extends SettingsElement {
     public SettingsPage hidePrice() {
         logStep("When I hide price");
         cbPrice.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return this;
     }
 
@@ -54,24 +53,26 @@ public class SettingsPage extends SettingsElement {
     public SortListModal openSortListMOdal() {
         logStep("When I open Sort list modal");
         btnSortList.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new SortListModal();
     }
 
     @Step("When I open Categories List page")
     public CategoriesListPage openCategoriesList() {
         logStep("When I open Categories List page");
+        findElementByTextUsingScroll("Categories List");
         btnCategoriesList.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new CategoriesListPage();
     }
 
     @Step("When I open My List page")
     public MyListPage openMyList() {
         logStep("When I open My list page");
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
+        findElementByTextUsingScroll("My List");
         btnMyList.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new MyListPage();
     }
 }

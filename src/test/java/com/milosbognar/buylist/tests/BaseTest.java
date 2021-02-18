@@ -15,6 +15,8 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 
+import static com.milosbognar.buylist.core.AppiumServer.startServer;
+import static com.milosbognar.buylist.core.AppiumServer.stopServer;
 import static com.milosbognar.buylist.core.utils.Utilities.reopenApp;
 
 public abstract class BaseTest {
@@ -33,26 +35,32 @@ public abstract class BaseTest {
 
     protected Utilities utilities;
 
-//    @BeforeSuite(alwaysRun = true)
-//    public void beforeSuite() throws IOException, InterruptedException {
-//
-//    }
+    public final String DEBUG = "DEBUG";
+    public final String HOME_TEST = "HOME_TEST";
+    public final String ADD_PRODUCT_TEST = "ADD_PRODUCT_TEST";
+    public final String SETTINGS_TEST = "SETTINGS_TEST";
 
-//    @BeforeClass(alwaysRun = true)
-//    public void beforeClass() throws IOException, InterruptedException {
-//
-//    }
+    @BeforeSuite(alwaysRun = true)
+    public void beforeSuite() {
+        startServer();
+    }
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() throws IOException, InterruptedException {
-        DriverManager.prepareDriver();
+        DriverManager.initializer();
         initializePages();
+        homePage.closePopup();
     }
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         reopenApp();
         DriverManager.quitDriver();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void afterSuite() {
+        stopServer();
     }
 
     public void initializePages() {
@@ -67,9 +75,4 @@ public abstract class BaseTest {
         addFromMyListPage = new AddFromMyListPage();
         utilities = new Utilities();
     }
-
-//    @AfterClass
-//    public void afterClass() {
-//
-//    }
 }

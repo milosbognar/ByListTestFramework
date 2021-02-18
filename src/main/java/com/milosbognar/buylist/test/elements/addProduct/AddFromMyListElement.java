@@ -6,10 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class AddFromMyListElement extends BasePageElement {
 
-
     @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Select all']")
     protected WebElement btnSelectAll;
 
-    @AndroidFindBy(xpath = "//android.widget.Button[@text = 'Ok']")
-    protected WebElement btnOk;
 }

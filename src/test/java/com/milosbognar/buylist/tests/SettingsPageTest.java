@@ -3,6 +3,7 @@ package com.milosbognar.buylist.tests;
 import com.milosbognar.buylist.core.data.models.Item;
 
 import org.testng.annotations.Test;
+
 import java.util.List;
 
 import static com.milosbognar.buylist.core.data.provider.DataProvider.dataProvider;
@@ -14,7 +15,7 @@ public class SettingsPageTest extends BaseTest {
     private final Item item2 = Item.getItem(dataProvider(), "product2");
     private final Item item3 = Item.getItem(dataProvider(), "product3");
 
-    @Test(description = "Verify that comment is hidden")
+    @Test(groups = {SETTINGS_TEST}, description = "Verify that comment is hidden")
     public void testHideComments() {
         String listName = "Grocery list 2";
         assertThat(homePage.createNewList(listName)
@@ -27,7 +28,7 @@ public class SettingsPageTest extends BaseTest {
                 .isFalse();
     }
 
-    @Test(description = "Verify that unit is hidden")
+    @Test(groups = {SETTINGS_TEST}, description = "Verify that unit is hidden")
     public void testHideUnits() {
         String listName = "ShoppingList";
         assertThat(homePage.createNewList(listName)
@@ -40,7 +41,7 @@ public class SettingsPageTest extends BaseTest {
                 .isFalse();
     }
 
-    @Test(description = "Verify that price is hidden")
+    @Test(groups = {SETTINGS_TEST}, description = "Verify that price is hidden")
     public void testHidePrice() {
         String listName = "Important";
         assertThat(homePage.createNewList(listName)
@@ -53,7 +54,7 @@ public class SettingsPageTest extends BaseTest {
                 .isFalse();
     }
 
-    @Test(description = "Verify that items are sorted by name")
+    @Test(groups = {SETTINGS_TEST}, description = "Verify that items are sorted by name")
     public void testSortItems() {
         String listName = "Ordered list";
         List<Item> itemList = dataProvider().subList(3, 6);
@@ -68,7 +69,7 @@ public class SettingsPageTest extends BaseTest {
                 .isTrue();
     }
 
-    @Test(description = "User adds a new category")
+    @Test(groups = {SETTINGS_TEST, DEBUG}, description = "User adds a new category")
     public void testAddNewCategory() {
         String categoryName = "New Category";
         assertThat(homePage.openSettings()
@@ -79,7 +80,7 @@ public class SettingsPageTest extends BaseTest {
                 .isTrue();
     }
 
-    @Test(description = "User adds an item from MyList")
+    @Test(groups = {SETTINGS_TEST}, description = "User adds an item from MyList")
     public void testAddItemFromMyList() {
         List<Item> itemList = dataProvider().subList(0, 2);
         String listName = "ListWithMyList";

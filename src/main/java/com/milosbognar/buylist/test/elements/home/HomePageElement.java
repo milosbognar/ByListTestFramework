@@ -9,9 +9,6 @@ public class HomePageElement extends BasePageElement {
     @AndroidFindBy(xpath = "//*[@resource-id='com.slava.buylist:id/textView1' and @text='Buy list']")
     protected WebElement hdrBuyList;
 
-    @AndroidFindBy(xpath = "//*[@text = 'OK']")
-    protected WebElement btnOK;
-
     @AndroidFindBy(id = "com.slava.buylist:id/editText1")
     protected WebElement txtListName;
 

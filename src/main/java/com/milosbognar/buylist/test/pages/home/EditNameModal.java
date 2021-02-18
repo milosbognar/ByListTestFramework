@@ -19,7 +19,7 @@ public class EditNameModal extends EditNameModalElement {
     public HomePage clickButtonOK() {
         logStep("When I click on 'OK' button");
         btnOK.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new HomePage();
     }
 
@@ -27,7 +27,7 @@ public class EditNameModal extends EditNameModalElement {
     public HomePage clickButtonNo() {
         logStep("When I click on 'No' button");
         btnNo.click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new HomePage();
     }
 }

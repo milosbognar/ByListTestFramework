@@ -1,5 +1,8 @@
 package com.milosbognar.buylist.core.utils;
 
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.MultiTouchAction;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -7,11 +10,21 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.Arrays;
 
 import static com.milosbognar.buylist.core.DriverManager.getDriver;
 import static java.lang.String.format;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Utilities {
 
@@ -117,6 +130,15 @@ public class Utilities {
         waitForNSeconds(5);
         driver.resetApp();
         waitForNSeconds(5);
+    }
+
+    public static void implicitlyWaitForNSeconds(int seconds) {
+        driver.manage().timeouts().implicitlyWait(seconds, SECONDS);
+    }
+
+    public static void explicitlyWaitForWebElement(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public static void logStep(String report, Object... arguments) {

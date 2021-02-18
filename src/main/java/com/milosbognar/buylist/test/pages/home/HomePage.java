@@ -27,10 +27,10 @@ public class HomePage extends HomePageElement {
     public void goBackToHomePage() {
         logStep("Go back to Home page");
         int counter = 3;
-        waitForNSeconds(5);
+        explicitlyWaitForWebElement(hdrBuyList);
         while (!isElementPresent(hdrBuyList) && counter-- != 0) {
             goBack();
-            waitForNSeconds(1);
+            implicitlyWaitForNSeconds(5);
         }
     }
 
@@ -43,7 +43,7 @@ public class HomePage extends HomePageElement {
     @Step("When I create a new shopping list")
     public AddProductPage createNewList(String listName) {
         logStep("Create [%s] list", listName);
-        waitForNSeconds(3);
+        explicitlyWaitForWebElement(txtListName);
         txtListName.click();
         enterText(txtListName, listName);
         btnCreateList.click();
@@ -61,7 +61,7 @@ public class HomePage extends HomePageElement {
     public EditNameModal tapOnChangeListNameButton(String listName) {
         logStep("When I tap on change list name button for [%s] list", listName);
         getElementByXPath(btnEditNameForSpecifiedList(listName)).click();
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return new EditNameModal();
     }
 

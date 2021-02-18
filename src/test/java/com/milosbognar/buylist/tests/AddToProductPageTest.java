@@ -12,7 +12,7 @@ public class AddToProductPageTest extends BaseTest {
 
     private final List<Item> itemList = dataProvider().subList(0, 3);
 
-    @Test(description = "Verify that total price is correct")
+    @Test(groups = {ADD_PRODUCT_TEST}, description = "Verify that total price is correct")
     public void testIsTotalPriceCorrect() {
         String listName = "Grocery list";
         assertThat(homePage.createNewList(listName)

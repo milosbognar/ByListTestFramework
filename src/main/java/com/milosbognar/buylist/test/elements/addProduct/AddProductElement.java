@@ -8,9 +8,6 @@ import java.util.List;
 
 public class AddProductElement extends BasePageElement {
 
-    @AndroidFindBy(xpath = "//*[@text = 'OK']")
-    protected WebElement btnOK;
-
     @AndroidFindBy(xpath = "//*[@text = 'Add product...']")
     protected WebElement txtItemName;
 
@@ -56,7 +53,7 @@ public class AddProductElement extends BasePageElement {
     @AndroidFindBy(xpath = "//*[@resource-id='com.slava.buylist:id/title']/following-sibling::android.widget.TextView[@resource-id='com.slava.buylist:id/textView1']")
     protected WebElement lblPrice;
 
-    @AndroidFindBy(xpath = "//*[@resource-id='com.slava.buylist:id/title']")
+    @AndroidFindBy(id = "com.slava.buylist:id/title")
     protected List<WebElement> listItemNames;
 
     protected String lblPrice(String listName) {

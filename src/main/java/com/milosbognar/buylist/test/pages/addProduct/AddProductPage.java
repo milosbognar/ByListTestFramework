@@ -20,7 +20,7 @@ public class AddProductPage extends AddProductElement {
         logStep("When I go back to Home Page");
         hideKeyboard();
         goBack();
-        waitForNSeconds(3);
+        implicitlyWaitForNSeconds(3);
         return new HomePage();
     }
 
@@ -53,7 +53,7 @@ public class AddProductPage extends AddProductElement {
         logStep("When I add [%d] items to the list and calculate total price", items.size());
         addItemsToList(items);
         calculateTotalPrice(items);
-        waitForNSeconds(2);
+        implicitlyWaitForNSeconds(3);
         return this;
     }
 
@@ -75,7 +75,7 @@ public class AddProductPage extends AddProductElement {
     public boolean isTotalPriceCorrect() {
         logStep("Then total price is correct");
         hideKeyboard();
-        waitForNSeconds(2);
+        explicitlyWaitForWebElement(lblTotalPrice);
         String totalPriceText = lblTotalPrice.getText();
         double totalPrice = Double.parseDouble(totalPriceText.substring(totalPriceText.indexOf(" ") + 1, totalPriceText.lastIndexOf(" ")));
         double sumPrice = (double) getContext().get("sumPrice");
@@ -87,7 +87,7 @@ public class AddProductPage extends AddProductElement {
         logStep("When I open Settings page");
         btnMenu.click();
         btnSettings.click();
-        waitForNSeconds(3);
+        implicitlyWaitForNSeconds(3);
         return new SettingsPage();
     }
 

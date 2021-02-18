@@ -36,15 +36,15 @@ and try again.**
 * Open Android Emulator
 
 #### - Create a TestNG Debug/Run Configuration
-* Test kind: `Suite`
-* Suite: provide path to the `debug.xml` file
-* VM options: `-ea -Dtestng.dtd.http=true -DdeviceName=emulator-5554`
-* Add to test annotiation: `groups = {"Debug"}`
+* Test kind: `Group`
+* Group: `DEBUG`
+* VM options: `-ea -Dtestng.dtd.http=true -DdeviceName=emulator-5554 -DisLocalRun=true`
+* Add to test annotiation: `groups = {DEBUG}`
 
 #### - Create a TestNG Run All Tests Configuration
-* Test kind: `Suite`
-* Suite: provide path to the `testng.xml` file
-* VM options: `-ea -Dtestng.dtd.http=true -DdeviceName=emulator-5554`
+* Test kind: `Group`
+* Group: `HOME_TEST, ADD_PRODUCT_TEST, SETTINGS_TEST`
+* VM options: `-ea -Dtestng.dtd.http=true -DdeviceName=emulator-5554 -DisLocalRun=true`
 
 ## Test results
 
