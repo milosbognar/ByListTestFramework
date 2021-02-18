@@ -42,15 +42,15 @@ public class Utilities {
     }
 
     public static void hideKeyboard() {
-        waitForNSeconds(1);
+        implicitlyWaitForNSeconds(1);
         if (driver.isKeyboardShown()) driver.hideKeyboard();
-        waitForNSeconds(1);
+        implicitlyWaitForNSeconds(1);
     }
 
     public static void goBack() {
-        waitForNSeconds(1);
+        implicitlyWaitForNSeconds(1);
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        waitForNSeconds(1);
+        implicitlyWaitForNSeconds(1);
     }
 
     public static void waitForNSeconds(int seconds) {

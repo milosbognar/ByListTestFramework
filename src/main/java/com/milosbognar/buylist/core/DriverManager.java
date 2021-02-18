@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.milosbognar.buylist.core.PropertiesManager.getProjectProperty;
 import static com.milosbognar.buylist.core.PropertiesManager.getSystemProperty;
+import static com.milosbognar.buylist.core.utils.Utilities.implicitlyWaitForNSeconds;
 import static com.milosbognar.buylist.core.utils.Utilities.waitForNSeconds;
 
 public class DriverManager {
@@ -43,7 +44,7 @@ public class DriverManager {
 
         driver = new AndroidDriver<>(new URL(getProjectProperty("hubUrl")), cap);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        waitForNSeconds(5);
+        implicitlyWaitForNSeconds(5);
         return driver;
     }
 
